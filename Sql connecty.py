@@ -8,3 +8,5 @@ while 1:
     if not row:
         break
     print(row.user_name, row.age)
+
+connection_to_db.close()q
