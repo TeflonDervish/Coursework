@@ -9,4 +9,4 @@ while 1:
         break
     print(row.user_name, row.age)
 
-connection_to_db.close()q
+connection_to_db.close()
