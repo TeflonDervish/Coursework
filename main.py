@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
 import sys
-from Layout.Calc import Ui_MainWindow
+from Forms.Calc import Ui_MainWindow
 
 
 class MainWindow(QMainWindow, Ui_MainWindow): # главное окно
