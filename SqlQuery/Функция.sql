@@ -4,10 +4,11 @@ RETURNS @Profit Table(
 	PriceProfit DECIMAL(8,2))
 AS BEGIN
 	INSERT @Profit
-	SELECT Equipment.Name, PurchasedService.Price 
+	SELECT Equipment.Name, sum(PurchasedService.Price) 
 	FROM PurchasedService
 		JOIN Service ON PurchasedService.Service_ID=Service.Service_ID
 		JOIN Equipment ON Service.Equipment_ID=Equipment.Equipment_ID
-	WHERE PurchasedService.StartTime=@StartDate AND PurchasedService.EndTime=@EndDate
+	WHERE PurchasedService.StartTime between @StartDate AND @EndDate AND 
+	Group by Service.Name
 	RETURN
 END;
