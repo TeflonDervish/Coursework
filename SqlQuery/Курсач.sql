@@ -6,6 +6,8 @@ create table Visitors(
 	Name varchar(20),
 	PhoneNumber varchar(15),
 	Email varchar(25)
+
+	# пароль
 )
 
 create table Staff(
@@ -16,6 +18,9 @@ create table Staff(
 	PhoneNumber varchar(15),
 	LaborBookName int,
 	MedicalBookName int,
+
+	# пароль
+	# администратор или обычный сотрудник
 )
 create table Equipment(
 	Equipment_ID int primary key,
@@ -40,4 +45,6 @@ create table PurchasedService(
 	Price decimal(8, 2),
 	StartTime smalldatetime, 
 	EndTime smalldatetime,
+
+	#
 )

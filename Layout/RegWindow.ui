@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>260</width>
-    <height>300</height>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,10 +71,22 @@
      <x>10</x>
      <y>60</y>
      <width>241</width>
-     <height>201</height>
+     <height>241</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
+    <property name="rowWrapPolicy">
+     <enum>QFormLayout::DontWrapRows</enum>
+    </property>
+    <property name="labelAlignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="horizontalSpacing">
+     <number>5</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>20</number>
+    </property>
     <item row="0" column="0">
      <widget class="QLabel" name="label_2">
       <property name="font">
