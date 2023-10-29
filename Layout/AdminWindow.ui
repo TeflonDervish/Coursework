@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>848</width>
-    <height>499</height>
+    <width>839</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>20</y>
       <width>841</width>
       <height>500</height>
      </rect>
@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="PurchasedServices">
      <attribute name="title">
@@ -44,48 +44,11 @@
         <height>461</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout" columnstretch="4,1">
+      <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1" columnstretch="3,1">
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="text">
-          <string>Удалить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Добавить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QTextBrowser" name="textBrowser">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="pushButton_5">
-         <property name="text">
-          <string>Изменить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="4">
+       <item row="0" column="0" rowspan="3">
         <widget class="QTreeWidget" name="treeWidget">
          <column>
           <property name="text">
@@ -119,115 +82,167 @@
          </column>
         </widget>
        </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="Visitors">
-     <attribute name="title">
-      <string>Пользователи</string>
-     </attribute>
-     <widget class="QWidget" name="gridLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>831</width>
-        <height>461</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2" columnstretch="4,1">
-       <property name="spacing">
-        <number>10</number>
-       </property>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="pushButton_6">
-         <property name="text">
-          <string>Удалить</string>
+       <item row="0" column="1" rowspan="2">
+        <widget class="QScrollArea" name="scrollArea_3">
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+         <property name="widgetResizable">
+          <bool>true</bool>
          </property>
-         <property name="text">
-          <string>Добавить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QTextBrowser" name="textBrowser_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>203</width>
+            <height>297</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Поиск</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>ID посетителя</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_2"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>ID сотрудника</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_3"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>Время начала</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>Время конца</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateTimeEdit" name="dateTimeEdit_2"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_14">
+                <property name="text">
+                 <string>Поиск</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QPushButton" name="pushButton_7">
-         <property name="text">
-          <string>Изменить</string>
+        <widget class="QScrollArea" name="scrollArea_4">
+         <property name="widgetResizable">
+          <bool>true</bool>
          </property>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="4">
-        <widget class="QTreeWidget" name="treeWidget_2">
-         <column>
-          <property name="text">
-           <string>ID посетителя</string>
+         <widget class="QWidget" name="scrollAreaWidgetContents_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>203</width>
+            <height>148</height>
+           </rect>
           </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Фамилия</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Имя</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Телефонный номер</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Email</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Изменение</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Добавить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_5">
+                <property name="text">
+                 <string>Изменить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="text">
+                 <string>Удалить</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -246,48 +261,11 @@
         <height>461</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_3" columnstretch="4,1">
+      <layout class="QGridLayout" name="gridLayout_3" rowstretch="1,1,1" columnstretch="3,1">
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="pushButton_8">
-         <property name="text">
-          <string>Удалить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Добавить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QTextBrowser" name="textBrowser_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="pushButton_9">
-         <property name="text">
-          <string>Изменить</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="4">
+       <item row="0" column="0" rowspan="3">
         <widget class="QTreeWidget" name="treeWidget_3">
          <column>
           <property name="text">
@@ -351,9 +329,441 @@
          </column>
         </widget>
        </item>
+       <item row="2" column="1">
+        <widget class="QScrollArea" name="scrollArea_5">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_6">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>203</width>
+            <height>148</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Изменение</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButton_11">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Добавить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_15">
+                <property name="text">
+                 <string>Изменить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_16">
+                <property name="text">
+                 <string>Удалить</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="2">
+        <widget class="QScrollArea" name="scrollArea_6">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_7">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>186</width>
+            <height>399</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Поиск</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Фамилия</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>Имя</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_2"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>Телефонный номер</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_3"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>Email</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_7"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="font">
+                 <font>
+                  <family>MS Shell Dlg 2</family>
+                  <pointsize>10</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Номер трудовой книжки</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_8"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="styleSheet">
+                 <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Номер медицинской книжки</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_9"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_17">
+                <property name="text">
+                 <string>Поиск</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
+    <widget class="QWidget" name="Visitors">
+     <attribute name="title">
+      <string>Пользователи</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>831</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2" columnstretch="3,0">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <item row="0" column="1">
+        <widget class="QScrollArea" name="scrollArea_2">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>185</width>
+            <height>457</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
+           <item>
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Поиск</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
+              <item>
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>Фамилия</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_11"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_17">
+                <property name="text">
+                 <string>Имя</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_12"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_18">
+                <property name="text">
+                 <string>Телефонный номер</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_13"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_19">
+                <property name="text">
+                 <string>Email</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_14"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_15"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_18">
+                <property name="text">
+                 <string>Поиск</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_7">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Изменение</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButton_12">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Добавить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_19">
+                <property name="text">
+                 <string>Изменить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_20">
+                <property name="text">
+                 <string>Удалить</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="0" rowspan="2">
+        <widget class="QTreeWidget" name="treeWidget_2">
+         <column>
+          <property name="text">
+           <string>ID посетителя</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Фамилия</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Имя</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Телефонный номер</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Email</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>0</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Выход</string>
+    </property>
    </widget>
   </widget>
  </widget>
