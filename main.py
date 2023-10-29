@@ -1,27 +1,11 @@
 from PyQt5.QtWidgets import *
 import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
 
-from Forms.LoginWindow import Ui_LoginWindow
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    log = Ui_LoginWindow()
-    log.show()
-    sys.exit(log.exec_())
-
-class Window1(QMainWindow):
-    def __init__(self):
-        super(Window1, self).__init__()
-
-        self.setWindowTitle("Редактор кода")
-        self.move(200, 200)
-        self.setFixedSize(400, 400)
-
+from WindowStarts.LoginWindow import LoginWindow
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    win = QWidget
-    ui = Ui_LoginWindow()
-    ui.setupUi(win)
+    win = LoginWindow()
     win.show()
     sys.exit(app.exec_())
