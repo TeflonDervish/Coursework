@@ -15,7 +15,7 @@ class Ui_RegWindow(object):
     def setupUi(self, RegWindow):
         RegWindow.setObjectName("RegWindow")
         RegWindow.setEnabled(True)
-        RegWindow.setFixedSize(260, 317)
+        RegWindow.resize(260, 317)
         self.pushReg = QtWidgets.QPushButton(RegWindow)
         self.pushReg.setGeometry(QtCore.QRect(60, 260, 151, 28))
         self.pushReg.setObjectName("pushReg")

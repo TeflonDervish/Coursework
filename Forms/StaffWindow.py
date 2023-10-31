@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_StaffWindow(object):
     def setupUi(self, StaffWindow):
         StaffWindow.setObjectName("StaffWindow")
-        StaffWindow.setFixedSize(525, 325)
+        StaffWindow.resize(525, 325)
         self.centralwidget = QtWidgets.QWidget(StaffWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushExit = QtWidgets.QPushButton(self.centralwidget)

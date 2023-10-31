@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_VisitorWindow(object):
     def setupUi(self, VisitorWindow):
         VisitorWindow.setObjectName("VisitorWindow")
-        VisitorWindow.setFixedSize(693, 403)
+        VisitorWindow.resize(693, 403)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)

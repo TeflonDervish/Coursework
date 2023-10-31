@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="PurchasedServices">
      <attribute name="title">
@@ -48,38 +48,80 @@
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="0" column="0" rowspan="3">
-        <widget class="QTreeWidget" name="treeWidget">
-         <column>
-          <property name="text">
-           <string>ID услуги</string>
+       <item row="2" column="1">
+        <widget class="QScrollArea" name="scrollArea_4">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>203</width>
+            <height>148</height>
+           </rect>
           </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>ID посетителя</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>ID сотрудника</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Цена</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Время начала</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Время конца</string>
-          </property>
-         </column>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+             </property>
+             <property name="title">
+              <string>Изменение</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushAddPurchased">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Добавить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushChangePurchased">
+                <property name="text">
+                 <string>Изменить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushRemovePurchased">
+                <property name="text">
+                 <string>Удалить</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
        <item row="0" column="1" rowspan="2">
@@ -169,81 +211,8 @@
          </widget>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QScrollArea" name="scrollArea_4">
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents_4">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>203</width>
-            <height>148</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
-           <item>
-            <widget class="QGroupBox" name="groupBox">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
-             </property>
-             <property name="title">
-              <string>Изменение</string>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-             <property name="checkable">
-              <bool>false</bool>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <property name="leftMargin">
-               <number>9</number>
-              </property>
-              <item>
-               <widget class="QPushButton" name="pushAddPurchased">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Добавить</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushChangePurchased">
-                <property name="text">
-                 <string>Изменить</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushRemovePurchased">
-                <property name="text">
-                 <string>Удалить</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </widget>
+       <item row="0" column="0" rowspan="3">
+        <widget class="QTableWidget" name="tableWidget"/>
        </item>
       </layout>
      </widget>
@@ -265,70 +234,6 @@
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="0" column="0" rowspan="3">
-        <widget class="QTreeWidget" name="treeWidget_3">
-         <column>
-          <property name="text">
-           <string>ID сотрудника</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Фамилия</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Имя</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Отчество</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Телефонный номер</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Номер трудовой книжки</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Номер медицинской книжки</string>
-          </property>
-         </column>
-        </widget>
-       </item>
        <item row="2" column="1">
         <widget class="QScrollArea" name="scrollArea_5">
          <property name="widgetResizable">
@@ -420,7 +325,7 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-102</y>
+            <y>0</y>
             <width>186</width>
             <height>399</height>
            </rect>
@@ -530,6 +435,9 @@
          </widget>
         </widget>
        </item>
+       <item row="0" column="0" rowspan="3">
+        <widget class="QTableWidget" name="tableWidget_2"/>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -550,60 +458,6 @@
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="0" column="0" rowspan="3">
-        <widget class="QTreeWidget" name="treeWidget_2">
-         <column>
-          <property name="text">
-           <string>ID посетителя</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Фамилия</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Имя</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Телефонный номер</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Email</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </column>
-        </widget>
-       </item>
        <item row="0" column="1">
         <widget class="QScrollArea" name="scrollArea_2">
          <property name="widgetResizable">
@@ -747,6 +601,9 @@
           </item>
          </layout>
         </widget>
+       </item>
+       <item row="0" column="0" rowspan="3">
+        <widget class="QTableWidget" name="tableWidget_3"/>
        </item>
       </layout>
      </widget>

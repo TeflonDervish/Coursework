@@ -1,21 +1,10 @@
 import pyodbc
 
-'''
-connection_to_db = pyodbc.connect(r'Driver={SQL Server};Server=TeflonDervish;Database=TrampolineCenter;Trusted_Connection=yes;')
-cursor = connection_to_db.cursor()
-cursor.execute('SELECT Surname FROM Visitors')
-while 1:
-    row = cursor.fetchone()
-    if not row:
-        break
-    print(row.Surname)
 
-connection_to_db.close()
-'''
-
-class Sql():
+class SqlQuery():
     def __init__(self):
-        self.connection_to_db = pyodbc.connect('Driver={SQL Server};Server=TeflonDervish;Database=TrampolineCenter;Trusted_Connection=yes;')
+        self.connection_to_db = pyodbc.connect(
+            'Driver={SQL Server};Server=TeflonDervish;Database=TrampolineCenter;Trusted_Connection=yes;')
         self.cursor = self.connection_to_db.cursor()
 
     def get_visitors(self):
@@ -30,10 +19,10 @@ class Sql():
         '''
         self.cursor.execute('SELECT * FROM Visitors')
         dict = {
-            'Surname' : [],
-            'Name' : [],
-            'PhoneNumber' : [],
-            'Email' : [],
+            'Surname': [],
+            'Name': [],
+            'PhoneNumber': [],
+            'Email': [],
         }
         while 1:
             row = self.cursor.fetchone()
@@ -157,10 +146,33 @@ class Sql():
             dict["EndTime"].append(row[6])
         return dict
 
-sql = Sql()
+    # [Id, type, access]
+    def chekc_password(self, login, password):
+        self.cursor.execute('SELECT Visitor_ID, password FROM Visitor WHERE login = ' + login)
+        ID = -1
+        type = 'Visitor'
+        access = -1
+        passw = ''
+        while 1:
+            row = self.cursor.fetchone()
+            if not row: break
+            ID = row[0]
+            passw = row[1]
 
-print(sql.get_visitors())
-print(sql.get_staff())
-print(sql.get_equipment())
-print(sql.get_service())
-print(sql.get_purchased_service())
+        if passw == password:
+            return [ID, type, access]
+        elif passw == '':
+            type = 'Staff'
+            self.cursor.execute('SELECT Visitor_ID, password, access_mod FROM Staff WHERE login = ' + login)
+            while 1:
+                row = self.cursor.fetchone()
+                if not row: break
+                ID = row[0]
+                passw = row[1]
+                access = row[2]
+            if passw == password:
+                return [ID, type, access]
+        else:
+            return [-1, 'Error', access]
+
+
