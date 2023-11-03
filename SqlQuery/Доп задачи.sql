@@ -17,7 +17,7 @@ select S.*, PS.* from
 Staff S join PurchasedService PS on S.Staff_ID = PS.Staff_ID
 
 select * from PSandSt
-
+-- представление приобретенные услуги персонал и посетители
 
 
 -- процедура 
@@ -111,6 +111,7 @@ EXEC FirstPack 1,1;
 
 -- функция(Скалярная возвращает кол-во сотрудников, мультифункци)
 --Табличная
+--мультиоператорная(возварщает список услуш и сколько они заработали за определенное время)
 create or ALTER FUNCTION dbo.ServiceProfit(@StartDate SMALLDATETIME, @EndDate SMALLDATETIME)
 RETURNS @Profit Table(
 	NameProfit VARCHAR(20),
@@ -133,8 +134,7 @@ CREATE OR ALTER FUNCTION GetStaffCount()
 RETURNS INT
 AS
 BEGIN
-    
-
+  
     RETURN (
         SELECT COUNT(*)
         FROM Staff
@@ -149,4 +149,5 @@ PRINT dbo.GetStaffCount()
 -- всего - заработок
 
 -- тригер (Бля я не ебу что написать но короче надо 3)
+-- тригер на удаление если удаление посетителя и сотрудника, в таблице приобретнные услуги ID меняется на NULL
 -- ???
