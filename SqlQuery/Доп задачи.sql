@@ -17,16 +17,13 @@ select S.*, PS.* from
 Staff S join PurchasedService PS on S.Staff_ID = PS.Staff_ID
 
 select * from PSandSt
--- представление приобретенные услуги персонал и посетители
+-- !!! представление приобретенные + услуги персонал + посетители (должен быть модифицируемым)
 
 
 -- процедура 
 -- добавление пакетов услуг(разные услуги) 
 -- 1 пакет (батут на время 1 ,2, безлимит)
 --Visitor ID, Stuff_ID, StartTime, Durability
-
-DROP PROCEDURE FirstPack
-
 
 
 CREATE OR ALTER PROCEDURE FirstPack
@@ -110,8 +107,9 @@ END;
 EXEC FirstPack 1,1;
 
 -- функция(Скалярная возвращает кол-во сотрудников, мультифункци)
---Табличная
---мультиоператорная(возварщает список услуш и сколько они заработали за определенное время)
+--!!!Табличная(что - нибудь)
+--!!!мультиоператорная(возварщает список услуш и сколько они заработали за определенное время)
+
 create or ALTER FUNCTION dbo.ServiceProfit(@StartDate SMALLDATETIME, @EndDate SMALLDATETIME)
 RETURNS @Profit Table(
 	NameProfit VARCHAR(20),
@@ -143,7 +141,7 @@ END;
 
 PRINT dbo.GetStaffCount()
 
-
+-- !!!
 -- статистику по услгам в определенное время
 -- услуга - заработок
 -- всего - заработок
