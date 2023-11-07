@@ -38,7 +38,7 @@ class LoginWindow(QtWidgets.QMainWindow, Ui_LoginWindow):
         if res[1] == 'Visitor':
             self.visitorWindow = VisitorWindow(self, res[0])
             self.visitorWindow.show()
-            self.hide
+            self.hide()
         elif res[1] == 'Staff':
             if res[2] == 0:
                 self.staffWindow = StaffWindow(self, res[0])

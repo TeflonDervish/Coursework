@@ -4,7 +4,7 @@ import pyodbc
 class SqlQuery():
     def __init__(self):
         self.connection_to_db = pyodbc.connect(
-            'Driver={SQL Server};Server=TeflonDervish;Database=TrampolineCenter;Trusted_Connection=yes;')
+            'Driver={SQL Server};Server=LAPTOP-E54KUOCI;Database=TrampolineCenter;Trusted_Connection=yes;')
         self.cursor = self.connection_to_db.cursor()
 
     def get_visitors(self):
