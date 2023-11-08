@@ -42,6 +42,8 @@ class RegWindow(QtWidgets.QMainWindow, Ui_RegWindow):
         if text_error == '':
             print(1)
             self.sql.sql_insert("Visitors", [surname, name, phoneNumber, email, login, password])
+            self.parent().show()
+            self.hide()
         else:
             msg = QMessageBox(self)
             msg.setWindowTitle("Ошибка")

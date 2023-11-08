@@ -14,15 +14,17 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_StaffWindow(object):
     def setupUi(self, StaffWindow):
         StaffWindow.setObjectName("StaffWindow")
-        StaffWindow.resize(525, 325)
+        StaffWindow.resize(904, 561)
         self.centralwidget = QtWidgets.QWidget(StaffWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushExit = QtWidgets.QPushButton(self.centralwidget)
-        self.pushExit.setGeometry(QtCore.QRect(380, 0, 141, 31))
+        self.pushExit.setGeometry(QtCore.QRect(760, 0, 141, 31))
         self.pushExit.setObjectName("pushExit")
-        self.treeWidget = QtWidgets.QTreeWidget(self.centralwidget)
-        self.treeWidget.setGeometry(QtCore.QRect(0, 30, 521, 291))
-        self.treeWidget.setObjectName("treeWidget")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(0, 30, 901, 531))
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setObjectName("tableWidget")
         StaffWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(StaffWindow)
@@ -32,8 +34,3 @@ class Ui_StaffWindow(object):
         _translate = QtCore.QCoreApplication.translate
         StaffWindow.setWindowTitle(_translate("StaffWindow", "MainWindow"))
         self.pushExit.setText(_translate("StaffWindow", "Выход"))
-        self.treeWidget.headerItem().setText(0, _translate("StaffWindow", "Время начала"))
-        self.treeWidget.headerItem().setText(1, _translate("StaffWindow", "Время конца"))
-        self.treeWidget.headerItem().setText(2, _translate("StaffWindow", "Фамилия заказчика"))
-        self.treeWidget.headerItem().setText(3, _translate("StaffWindow", "Имя заказчика"))
-        self.treeWidget.headerItem().setText(4, _translate("StaffWindow", "Кем он работает"))

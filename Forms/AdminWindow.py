@@ -124,7 +124,7 @@ class Ui_AdminWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollArea_6.setObjectName("scrollArea_6")
         self.scrollAreaWidgetContents_7 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 184, 476))
+        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, -112, 184, 476))
         self.scrollAreaWidgetContents_7.setObjectName("scrollAreaWidgetContents_7")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
@@ -334,7 +334,7 @@ class Ui_AdminWindow(object):
         AdminWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(AdminWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(AdminWindow)
 
     def retranslateUi(self, AdminWindow):

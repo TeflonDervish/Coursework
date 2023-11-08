@@ -92,6 +92,9 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <property name="text">
     <string/>
    </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
    <property name="placeholderText">
     <string>Password</string>
    </property>

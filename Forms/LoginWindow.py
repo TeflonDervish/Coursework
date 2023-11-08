@@ -48,6 +48,7 @@ class Ui_LoginWindow(object):
         self.Password.setFont(font)
         self.Password.setInputMask("")
         self.Password.setText("")
+        self.Password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.Password.setObjectName("Password")
         self.pushReg = QtWidgets.QPushButton(LoginWindow)
         self.pushReg.setGeometry(QtCore.QRect(80, 200, 141, 28))

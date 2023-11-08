@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>525</width>
-    <height>325</height>
+    <width>904</width>
+    <height>561</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushExit">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>760</x>
       <y>0</y>
       <width>141</width>
       <height>31</height>
@@ -27,40 +27,21 @@
      <string>Выход</string>
     </property>
    </widget>
-   <widget class="QTreeWidget" name="treeWidget">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>30</y>
-      <width>521</width>
-      <height>291</height>
+      <width>901</width>
+      <height>531</height>
      </rect>
     </property>
-    <column>
-     <property name="text">
-      <string>Время начала</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Время конца</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Фамилия заказчика</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Имя заказчика</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Кем он работает</string>
-     </property>
-    </column>
+    <property name="rowCount">
+     <number>0</number>
+    </property>
+    <property name="columnCount">
+     <number>0</number>
+    </property>
    </widget>
   </widget>
  </widget>

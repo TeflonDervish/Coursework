@@ -190,6 +190,32 @@ class SqlQuery():
         text_query = text_query[:-2] + ");"
 
         self.cursor.execute(text_query)
+        self.connection_to_db.commit()
 
     def query(self, text):
         self.cursor.execute(text)
+
+
+    def get_staff_info(self, ID):
+        self.cursor.execute('SELECT * FROM PSandV WHERE PSandV.Staff_ID = ' + str(ID))
+        dict = {
+            'Surname': [],
+            'Name': [],
+            'PhoneNumber': [],
+            'Email': [],
+            'Price': [],
+            'StartTime': [],
+            'EndTime': [],
+        }
+        while 1:
+            row = self.cursor.fetchone()
+            if not row: break
+            dict["Surname"].append(row[0])
+            dict["Name"].append(row[1])
+            dict["PhoneNumber"].append(row[2])
+            dict["Email"].append(row[3])
+            dict["EndTime"].append(row[5])
+            dict["Price"].append(row[6])
+            dict["StartTime"].append(row[7])
+            dict["EndTime"].append(row[8])
+        return  dict
