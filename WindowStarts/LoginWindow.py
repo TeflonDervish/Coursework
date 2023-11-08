@@ -12,6 +12,10 @@ from WindowStarts.VisitorWindow import VisitorWindow
 class LoginWindow(QtWidgets.QMainWindow, Ui_LoginWindow):
     def __init__(self, parent=None):
         super(LoginWindow, self).__init__()
+        self.regWindow = None
+        self.adminWindow = None
+        self.staffWindow = None
+        self.visitorWindow = None
         self.setupUi(self)
 
         self.pushReg.clicked.connect(self.showRegWindow)
@@ -19,13 +23,8 @@ class LoginWindow(QtWidgets.QMainWindow, Ui_LoginWindow):
 
         self.sql = SqlQuery()
 
-
-    def keyPressEvent(self, e):
-        if (Qt.Key_Enter):
-            self.showWindow()
-
     def showRegWindow(self):
-        self.regWindow = RegWindow(self)
+        self.regWindow = RegWindow(sql=self.sql, parent=self)
         self.regWindow.show()
         self.hide()
 
@@ -34,25 +33,26 @@ class LoginWindow(QtWidgets.QMainWindow, Ui_LoginWindow):
         self.password = self.Password.text()
 
         res = self.sql.chekc_password(self.login, self.password)
-
+        print(res)
         if res[1] == 'Visitor':
-            self.visitorWindow = VisitorWindow(self, res[0])
+            self.visitorWindow = VisitorWindow(res[0], sql=self.sql, parent=self)
             self.visitorWindow.show()
             self.hide()
         elif res[1] == 'Staff':
-            if res[2] == 0:
-                self.staffWindow = StaffWindow(self, res[0])
-                self.staffWindow.show()
-                self.hide()
-            elif res[2] == 1:
-                self.adminWindow = AdminWindow(self, res[0])
-                self.adminWindow.show()
-                self.hide()
+            self.staffWindow = StaffWindow(res[0], sql=self.sql, parent=self)
+            self.staffWindow.show()
+            self.hide()
+        elif res[1] == "Admin":
+            self.adminWindow = AdminWindow(res[0], sql=self.sql, parent=self)
+            self.adminWindow.show()
+            self.hide()
         elif res[1] == 'Error':
-            msg = QMessageBox()
+            msg = QMessageBox(self)
             msg.setWindowTitle("Ошибка")
             msg.setText("Неправильный логин или пароль")
             msg.setIcon(QMessageBox.Critical)
 
-            msg.exec_()
+            msg.show()
 
+        self.Login.setText('')
+        self.Password.setText('')

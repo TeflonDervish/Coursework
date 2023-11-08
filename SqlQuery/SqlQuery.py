@@ -148,22 +148,23 @@ class SqlQuery():
 
     # [Id, type, access]
     def chekc_password(self, login, password):
-        self.cursor.execute('SELECT Visitor_ID, password FROM Visitor WHERE login = ' + login)
+        if login == '' or password == '':
+            return [-1, 'Error']
+
+        self.cursor.execute("SELECT Visitor_ID, password FROM Visitors WHERE login = '" + login + "'")
         ID = -1
-        type = 'Visitor'
-        access = -1
         passw = ''
         while 1:
             row = self.cursor.fetchone()
             if not row: break
             ID = row[0]
             passw = row[1]
-
+        print(passw)
         if passw == password:
-            return [ID, type, access]
+            return [ID, "Visitor"]
         elif passw == '':
-            type = 'Staff'
-            self.cursor.execute('SELECT Visitor_ID, password, access_mod FROM Staff WHERE login = ' + login)
+            access = -1
+            self.cursor.execute("SELECT Staff_ID, password, access_mod FROM Staff WHERE login = '" + login + "'")
             while 1:
                 row = self.cursor.fetchone()
                 if not row: break
@@ -171,8 +172,24 @@ class SqlQuery():
                 passw = row[1]
                 access = row[2]
             if passw == password:
-                return [ID, type, access]
+                if access == 1: return [ID, "Admin"]
+                elif access == 0: return [ID, "Staff"]
+            else:
+                return [-1, 'Error']
         else:
-            return [-1, 'Error', access]
+            return [-1, 'Error']
 
 
+    def sql_insert(self, table, values):
+        print(2)
+        text_query = 'INSERT INTO ' + table + ' VALUES ('
+
+        for i in values:
+            text_query += i + ', '
+
+        text_query = text_query[:-2] + ");"
+
+        self.cursor.execute(text_query)
+
+    def query(self, text):
+        self.cursor.execute(text)

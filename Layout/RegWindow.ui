@@ -9,38 +9,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>260</width>
-    <height>317</height>
+    <width>283</width>
+    <height>433</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Регистрация</string>
   </property>
-  <widget class="QPushButton" name="pushReg">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>260</y>
-     <width>151</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Зарегистрироваться</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="labelReg">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>151</width>
+     <width>191</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>19</pointsize>
     </font>
    </property>
    <property name="text">
@@ -50,10 +37,10 @@
   <widget class="QPushButton" name="pushLogin">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>22</y>
-     <width>41</width>
-     <height>31</height>
+     <x>210</x>
+     <y>20</y>
+     <width>51</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -68,10 +55,10 @@
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
+     <x>20</x>
+     <y>70</y>
      <width>241</width>
-     <height>241</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -130,6 +117,24 @@
     <item row="1" column="1">
      <widget class="QLineEdit" name="Name"/>
     </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Телефон:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="PhoneNumber"/>
+    </item>
     <item row="4" column="0">
      <widget class="QLabel" name="label_5">
       <property name="font">
@@ -145,31 +150,63 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="PhoneNumber"/>
-    </item>
     <item row="4" column="1">
      <widget class="QLineEdit" name="Email"/>
     </item>
-    <item row="2" column="0">
-     <widget class="Line" name="line">
+    <item row="5" column="1">
+     <widget class="Line" name="line_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_4">
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_6">
       <property name="font">
        <font>
         <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Телефон:</string>
+       <string>Логин</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="Login"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Пароль</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="Password"/>
+    </item>
+    <item row="8" column="0" colspan="2">
+     <widget class="QPushButton" name="pushReg">
+      <property name="text">
+       <string>Зарегистрироваться</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
