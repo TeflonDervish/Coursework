@@ -219,3 +219,9 @@ class SqlQuery():
             dict["StartTime"].append(row[7])
             dict["EndTime"].append(row[8])
         return  dict
+
+
+    def add_package(self, Package_ID, Visitor_ID):
+        self.cursor.execute('EXEC ' + Package_ID + Visitor_ID + ',12;')
+
+    
