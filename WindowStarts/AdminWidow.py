@@ -4,6 +4,9 @@ from Forms.AdminWindow import Ui_AdminWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from SqlQuery.SqlQuery import SqlQuery
+from WindowStarts.ChangePurchasedService import ChangePurchasedService
+from WindowStarts.ChangeStaff import ChangeStaff
+from WindowStarts.ChangeVisitor import ChangeVisitor
 
 
 class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
@@ -85,17 +88,31 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.tableWidget_S.show()
         self.tableWidget_V.show()
 
-    def AddStaff(self): pass
+    def AddStaff(self):
+        changeS = ChangeStaff(data=[], parent=self)
+        changeS.show()
 
-    def AddVisitor(self): pass
+    def AddVisitor(self):
+        selected_item = self.tableWidget_V.selectedItems()
+        changeV = ChangeVisitor(data = [], parent=self)
+        changeV.show()
 
-    def AddPurchased(self): pass
+    def AddPurchased(self):
+        changePS = ChangePurchasedService(data = [], parent=self)
+        changePS.show()
 
-    def ChangeStaff(self): pass
+    def ChangeStaff(self):
+        changeS = ChangeStaff(data = [], parent=self)
+        changeS.show()
 
-    def ChangeVisitor(self): pass
+    def ChangeVisitor(self):
+        selected_item = self.tableWidget_V.selectedItems()
+        changeV = ChangeVisitor(data = [], parent=self)
+        changeV.show()
 
-    def ChangePurchased(self): pass
+    def ChangePurchased(self):
+        changePS = ChangePurchasedService(data = [], parent=self)
+        changePS.show()
 
     def RemoveStaff(self): pass
 
