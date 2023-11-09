@@ -34,85 +34,79 @@ FROM PSandSt
 --Visitor ID, Stuff_ID, StartTime, Durability
 
 
-CREATE OR ALTER PROCEDURE FirstPack
-    @VisitorID int, @StuffID int AS
+CREATE OR ALTER PROCEDURE Pack1
+    @VisitorID int, @StuffID int, @StartTime smalldatetime AS
 BEGIN
-	SELECT P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime ,P.EndTime FROM PurchasedService P
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime, P.EndTime) values
-	(@VisitorID, @StuffID, 7, GETDATE(), GETDATE())
+	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	(@VisitorID, @StuffID, 6, 350, @StartTime, DATEADD(HOUR,1,@StartTime))
 
 END;
-EXEC FirstPack 1,1;
+EXEC Pack1 2,1,'2020-11-1 12:00';
 
 -- 2 пакет (аниматов + батутов + комнатв)
-CREATE OR ALTER PROCEDURE FirstPack
-    @VisitorID int, @StuffID int AS
+CREATE OR ALTER PROCEDURE Pack2
+    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
 BEGIN
-	SELECT P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime ,P.EndTime FROM PurchasedService P
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime, P.EndTime) values
-	(@VisitorID, @StuffID, 7, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 5, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 1, GETDATE(), GETDATE())
+	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	(@VisitorID, @StuffID, 4,2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 6, 350 , DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
+	(@VisitorID, @StuffID, 1, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
 
 END;
-EXEC FirstPack 1,1;
+EXEC Pack2 2,1,'2020-11-1 12:00';
 
--- 3 пакет (аниматов + гигагейпузыри + батутов + комнатв)
-CREATE OR ALTER PROCEDURE FirstPack
-    @VisitorID int, @StuffID int AS
+-- 3 пакет (аниматов + гигапузыри + батутов + комнатв)
+CREATE OR ALTER PROCEDURE Pack3
+    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
 BEGIN
-	SELECT P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime ,P.EndTime FROM PurchasedService P
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime, P.EndTime) values
-	(@VisitorID, @StuffID, 7, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 8, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 5, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 1, GETDATE(), GETDATE())
+	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	(@VisitorID, @StuffID, 4, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 7, 999.99, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 6, 350, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
+	(@VisitorID, @StuffID, 1, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
 
 END;
-EXEC FirstPack 1,1;
+EXEC Pack3 2,1,'2020-11-1 10:00';
 
 
 -- 4 пакет (аниматов + пиньят + батутв + комнатв)
-CREATE OR ALTER PROCEDURE FirstPack
-    @VisitorID int, @StuffID int AS
+CREATE OR ALTER PROCEDURE Pack4
+    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
 BEGIN
-	SELECT P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime ,P.EndTime FROM PurchasedService P
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime, P.EndTime) values
-	(@VisitorID, @StuffID, 7, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 9, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 5, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 1, GETDATE(), GETDATE())
+	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	(@VisitorID, @StuffID, 4, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 8, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 6, 350, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
+	(@VisitorID, @StuffID, 3, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
 
 END;
-EXEC FirstPack 1,1;
+EXEC Pack4 2,1,'2020-11-1 10:00';
 
 -- 5 пакет (аниматов + гигпуз + пиньят + батутв + комнатв)
-CREATE OR ALTER PROCEDURE FirstPack
-    @VisitorID int, @StuffID int AS
+CREATE OR ALTER PROCEDURE Pack5
+    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
 BEGIN
-	SELECT P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime ,P.EndTime FROM PurchasedService P
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime, P.EndTime) values
-	(@VisitorID, @StuffID, 7, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 8, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 9, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 5, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 1, GETDATE(), GETDATE())
+	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	(@VisitorID, @StuffID, 4, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 7, 999.99, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 8, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 6, 350, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
+	(@VisitorID, @StuffID, 2, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
 
 END;
-EXEC FirstPack 1,1;
+EXEC Pack5 2,1,'2020-11-1 10:00';
 
 
--- 6 бичпакет (батут+ комната)
-CREATE OR ALTER PROCEDURE FirstPack
-    @VisitorID int, @StuffID int AS
+-- 6 пакет (батут+ комната)
+CREATE OR ALTER PROCEDURE Pack6
+    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
 BEGIN
-	SELECT P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime ,P.EndTime FROM PurchasedService P
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.StartTime, P.EndTime) values
-	(@VisitorID, @StuffID, 5, GETDATE(), GETDATE()),
-	(@VisitorID, @StuffID, 1, GETDATE(), GETDATE())
+	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	(@VisitorID, @StuffID, 6, 350, @StartTime, DATEADD(HOUR,1,@StartTime)),
+	(@VisitorID, @StuffID, 0, 2000, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime))
 
 END;
-EXEC FirstPack 1,1;
+EXEC Pack6 2,1,'2020-11-1 10:00';
 
 --Скалярная (возвращает кол-во сотрудников, мультифункци)
 --Табличная (выводит цену и дату приобретенной услуги по номеру зала)
@@ -145,7 +139,7 @@ SELECT *
 FROM dbo.GetPurchasedService(3)
 
 --Мультиоператорная
-CREATE OR ALTER FUNCTION dbo.ServiceProfit(@StartDate SMALLDATETIME, @EndDate SMALLDATETIME)
+CREATE OR ALTER FUNCTION dbo.ServiceProfit(@StartDate DATETIME, @EndDate DATETIME)
 RETURNS @Profit Table(
 	NameProfit VARCHAR(20),
 	PriceProfit DECIMAL(8,2))
@@ -160,7 +154,7 @@ AS BEGIN
 	RETURN
 END;
 
-SELECT * FROM ServiceProfit('2022-11-11 00:00:00', '2023-10-28 15:00:00')
+SELECT * FROM ServiceProfit('2019-28-11 00:00', '2024-10-12 15:00')
 
 -- !!!
 -- статистику по услгам в определенное время
@@ -182,49 +176,36 @@ AS BEGIN
 END;
 
 --Триггер на добавление и изменение(если меняем запись в таблице приобретенноый услуги если даты совпадают не разрешаем добавление)
-CREATE OR ALTER TRIGGER InsertService
-ON PurchasedService
-INSTEAD OF INSERT
+CREATE OR ALTER TRIGGER UniqueLogin
+ON Staff
+INSTEAD OF INSERT, UPDATE
 AS BEGIN
-	DECLARE @Start SMALLDATETIME
-	DECLARE @End SMALLDATETIME
-	DECLARE @Service TINYINT
-	SELECT @Start = inserted.StartTime, @End = inserted.EndTime, @Service = inserted.Service_ID
+	DECLARE @Login VARCHAR(20)
+	SELECT @Login = inserted.login
 	FROM inserted
-	IF (SELECT COUNT(PurchasedService.PurchasedService_ID) 
-		FROM PurchasedService
-		WHERE (PurchasedService.StartTime BETWEEN @Start AND @End 
-		OR PurchasedService.EndTime BETWEEN @Start AND @End) AND PurchasedService.Service_ID = @Service) <= 0
-		INSERT INTO PurchasedService
-		SELECT *
-		FROM inserted
+	IF (SELECT COUNT(login) 
+		FROM Staff
+		WHERE Staff.login = @Login) <= 0
+	INSERT INTO Staff
+	SELECT *
+	FROM inserted
 END;
 
-CREATE OR ALTER TRIGGER UpdateService
-ON PurchasedService
-AFTER UPDATE
+CREATE OR ALTER TRIGGER UniqueLoginVisitors
+ON Visitors
+AFTER INSERT
 AS BEGIN
-	DECLARE @Start SMALLDATETIME
-	DECLARE @End SMALLDATETIME
-	DECLARE @Service TINYINT
-	SELECT @Start = inserted.StartTime, @End = inserted.EndTime, @Service = inserted.Service_ID
+	DECLARE @Login VARCHAR(20)
+	SELECT @Login = inserted.login
 	FROM inserted
-	IF (SELECT COUNT(PurchasedService.PurchasedService_ID) 
-		FROM PurchasedService
-		WHERE (PurchasedService.StartTime BETWEEN @Start AND @End 
-		OR PurchasedService.EndTime BETWEEN @Start AND @End) AND PurchasedService.Service_ID = @Service) <= 0
-		UPDATE PurchasedService
-		SET 
-			PurchasedService.Staff_ID=ins.Staff_ID, 
-			PurchasedService.Visitor_ID=ins.Visitor_ID, 
-			PurchasedService.Price=ins.Price, 
-			PurchasedService.Service_ID=ins.Visitor_ID, 
-			PurchasedService.StartTime=ins.StartTime, 
-			PurchasedService.EndTime=ins.EndTime
-		FROM PurchasedService
-			JOIN inserted ins ON PurchasedService.PurchasedService_ID = ins.PurchasedService_ID;
+	IF (SELECT COUNT(login) 
+		FROM Visitors
+		WHERE Visitors.login = @Login) <= 0
+	INSERT INTO Visitors(Surname, Name, PhoneNumber, Email, login, password)
+	SELECT Surname, Name, PhoneNumber, Email, login, password
+	FROM inserted
 END;
--- тригер (Бля я не ебу что написать но короче надо 3)
+
 -- тригер на удаление если удаление посетителя и сотрудника, в таблице приобретнные услуги ID меняется на NULL
 -- ???
 -- Staff_ID=ins.Staff_ID, Visitor_ID=ins.Visitor_ID, Price=ins.Price, Service_ID=ins.Visitor_ID, StartTime=ins.StartTime, EndTime=ins.EndTime

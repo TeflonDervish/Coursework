@@ -12,10 +12,10 @@ class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
         self.sql = sql
         self.setupUi(self)
 
-        self.tableWidget.setColumnCount(2)
-        self.tableWidget.setRowCount(10)
+        #self.tableWidget.setColumnCount(2)
+        #self.tableWidget.setRowCount(10)
         self.tableWidget.setHorizontalHeaderLabels(['Услуга', 'Стоимость'])
-        self.tableWidget.setShowGrid(False)
+        print(1)
 
         self.activeServices = [False, False, False, False,
                               False, False, False, False]
