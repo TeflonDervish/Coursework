@@ -12,6 +12,11 @@ class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
         self.sql = sql
         self.setupUi(self)
 
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setRowCount(10)
+        self.tableWidget.setHorizontalHeaderLabels(['Услуга', 'Стоимость'])
+        self.tableWidget.setShowGrid(False)
+
         self.activeServices = [False, False, False, False,
                               False, False, False, False]
         self.chosenPackage = 'packNo'

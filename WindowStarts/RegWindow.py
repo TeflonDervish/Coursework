@@ -9,6 +9,7 @@ class RegWindow(QtWidgets.QMainWindow, Ui_RegWindow):
         super(RegWindow, self).__init__(parent)
         self.setupUi(self)
         self.sql = sql
+
         self.pushLogin.clicked.connect(self.showLogin)
         self.pushReg.clicked.connect(self.pushAddVisitor)
 

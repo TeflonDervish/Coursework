@@ -75,7 +75,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>541</width>
+           <width>1518</width>
            <height>421</height>
           </rect>
          </property>
@@ -92,7 +92,7 @@
           <property name="bottomMargin">
            <number>10</number>
           </property>
-          <item row="4" column="0">
+          <item row="3" column="0">
            <widget class="QRadioButton" name="pack5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -102,15 +102,15 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>20</pointsize>
+              <pointsize>6</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Пакет5</string>
+             <string>Пакет Гагарин (аниматор + пиньята + мыльные пузыри + час батутов + комната для чаепития)</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
+          <item row="4" column="0">
            <widget class="QRadioButton" name="pack6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -120,33 +120,15 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>20</pointsize>
+              <pointsize>9</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Пакет6</string>
+             <string>Эконом (час батутов + комната для чаепития)</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QRadioButton" name="pack4">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>20</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Пакет4</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
+          <item row="6" column="0">
            <widget class="QDateTimeEdit" name="packTime">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -161,24 +143,6 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <widget class="QRadioButton" name="pack1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>20</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Пакет1</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0">
            <widget class="QRadioButton" name="pack2">
             <property name="sizePolicy">
@@ -189,11 +153,29 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>20</pointsize>
+              <pointsize>9</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Пакет2</string>
+             <string>Пакет Невесомость (аниматор + час батутов + комната для чаепития)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="pack1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Час батутов!!!</string>
             </property>
            </widget>
           </item>
@@ -207,19 +189,25 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>20</pointsize>
+              <pointsize>8</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Пакет3</string>
+             <string>Пакет Спутник (аниматор + мыльные пузыри + час батутов + комната для чаепития)</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
+          <item row="5" column="0">
            <widget class="QRadioButton" name="packNo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="font">
              <font>
-              <pointsize>20</pointsize>
+              <pointsize>10</pointsize>
              </font>
             </property>
             <property name="text">
@@ -264,10 +252,28 @@
           <property name="bottomMargin">
            <number>10</number>
           </property>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="Service4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Комната шар (40 мин)</string>
+            </property>
+           </widget>
+          </item>
           <item row="7" column="0">
            <widget class="QDateTimeEdit" name="serviceTime">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -293,43 +299,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Услуга 2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="Service4">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Услуга 4</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QCheckBox" name="Service7">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Услуга 7</string>
+             <string>Комната радуга (40 мин)</string>
             </property>
            </widget>
           </item>
@@ -347,12 +317,12 @@
              </font>
             </property>
             <property name="text">
-             <string>Услуга 6</string>
+             <string>Тренерство (50 мин)</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="Service1">
+          <item row="6" column="0">
+           <widget class="QCheckBox" name="Service7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -365,25 +335,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Услуга 1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="Service5">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Услуга 5</string>
+             <string>Квест (30 мин)</string>
             </property>
            </widget>
           </item>
@@ -401,7 +353,43 @@
              </font>
             </property>
             <property name="text">
-             <string>Услуга 3</string>
+             <string>Комната тачки (40 мин)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="Service1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Комната бабочки (40 мин)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="Service5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Аниматор (50 мин)</string>
             </property>
            </widget>
           </item>
