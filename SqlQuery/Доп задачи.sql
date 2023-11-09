@@ -94,9 +94,9 @@ BEGIN
 	(@VisitorID, @StuffID, 2, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
 
 END;
-EXEC Pack5 2,1,'2020-11-1 10:00';
+EXEC Pack5 2,1,'2020-11-01 10:00';
 
-
+EXEC Pack4 28,12, '2023-11-10 00:44';
 -- 6 пакет (батут+ комната)
 CREATE OR ALTER PROCEDURE Pack6
     @VisitorID int, @StuffID int,@StartTime smalldatetime AS

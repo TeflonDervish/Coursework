@@ -181,14 +181,14 @@ class SqlQuery():
 
 
     def sql_insert(self, table, values):
-        print(2)
+
         text_query = 'INSERT INTO ' + table + ' VALUES ('
 
         for i in values:
             text_query += i + ', '
 
         text_query = text_query[:-2] + ");"
-
+        print(text_query)
         self.cursor.execute(text_query)
         self.connection_to_db.commit()
 
@@ -221,7 +221,7 @@ class SqlQuery():
         return  dict
 
 
-    def add_package(self, Package_ID, Visitor_ID):
-        print('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ',12;')
-        self.cursor.execute('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ',12;')
+    def add_package(self, Package_ID, Visitor_ID, DateTime):
+        print('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ",12, '" + DateTime + "';")
+        self.cursor.execute('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ",12, '" + DateTime + "';")
         self.connection_to_db.commit()

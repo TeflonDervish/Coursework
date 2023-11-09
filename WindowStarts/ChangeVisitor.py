@@ -10,5 +10,5 @@ class ChangeVisitor(QtWidgets.QMainWindow, Ui_ChangeVisitor):
 
         self.pushButton.clicked.connect(self.pushOk)
 
-        def pushOk(self):
-            self.close()
+    def pushOk(self):
+        self.close()

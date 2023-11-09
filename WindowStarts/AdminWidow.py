@@ -21,6 +21,10 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
 
         self.buttonConnect()
 
+        self.changeS = ChangeStaff([], self)
+        self.changeV = ChangeVisitor(data=[], parent=self)
+        self.changePS = ChangePurchasedService(data=[], parent=self)
+
         self.staffData = self.sql.get_staff()
         self.visitorData = self.sql.get_visitors()
         self.purchasedData = self.sql.get_purchased_service()
@@ -78,7 +82,7 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
             for j in range(len(self.headerLabels_S)):
                 item = QTableWidgetItem(str(self.staffData[self.headerLabels_S[j]][i]))
                 self.tableWidget_S.setItem(i, j, item)
-        print(self.visitorData)
+
         for i in range(len(self.visitorData['Surname'])):
             for j in range(len(self.headerLabels_V)):
                 item = QTableWidgetItem(str(self.visitorData[self.headerLabels_V[j]][i]))
@@ -89,30 +93,28 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.tableWidget_V.show()
 
     def AddStaff(self):
-        changeS = ChangeStaff(data=[], parent=self)
-        changeS.show()
+        self.changeS.show()
+        self.updateTable()
 
     def AddVisitor(self):
-        selected_item = self.tableWidget_V.selectedItems()
-        changeV = ChangeVisitor(data = [], parent=self)
-        changeV.show()
+        self.changeV.show()
+        self.updateTable()
 
     def AddPurchased(self):
-        changePS = ChangePurchasedService(data = [], parent=self)
-        changePS.show()
+        self.changePS.show()
+        self.updateTable()
 
     def ChangeStaff(self):
-        changeS = ChangeStaff(data = [], parent=self)
-        changeS.show()
+        self.changeS.show()
+        self.updateTable()
 
     def ChangeVisitor(self):
-        selected_item = self.tableWidget_V.selectedItems()
-        changeV = ChangeVisitor(data = [], parent=self)
-        changeV.show()
+        self.changeV.show()
+        self.updateTable()
 
     def ChangePurchased(self):
-        changePS = ChangePurchasedService(data = [], parent=self)
-        changePS.show()
+        self.changePS.show()
+        self.updateTable()
 
     def RemoveStaff(self): pass
 
@@ -126,6 +128,38 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
 
     def SearchPurchased(self): pass
 
+    def updateTable(self):
+        self.tableWidget_S.clear()
+        self.tableWidget_V.clear()
+        self.tableWidget_PS.clear()
+
+        self.changeS = ChangeStaff([], self)
+        self.changeV = ChangeVisitor(data=[], parent=self)
+        self.changePS = ChangePurchasedService(data=[], parent=self)
+
+        self.staffData = self.sql.get_staff()
+        self.visitorData = self.sql.get_visitors()
+        self.purchasedData = self.sql.get_purchased_service()
+
+        self.tableWidget_PS.setColumnCount(len(self.purchasedData))
+        self.tableWidget_PS.setRowCount(len(self.purchasedData["Visitor_ID"]))
+        self.headerLabels_PS = list(self.purchasedData)
+        self.tableWidget_PS.setHorizontalHeaderLabels(self.headerLabels_PS)
+        self.tableWidget_PS.setShowGrid(False)
+
+        self.tableWidget_S.setColumnCount(len(self.staffData))
+        self.tableWidget_S.setRowCount(len(self.staffData["Surname"]))
+        self.headerLabels_S = list(self.staffData)
+        self.tableWidget_S.setHorizontalHeaderLabels(self.headerLabels_S)
+        self.tableWidget_S.setShowGrid(False)
+
+        self.tableWidget_V.setColumnCount(len(self.visitorData))
+        self.tableWidget_V.setRowCount(len(self.visitorData["Surname"]))
+        self.headerLabels_V = list(self.visitorData)
+        self.tableWidget_V.setHorizontalHeaderLabels(self.headerLabels_V)
+        self.tableWidget_V.setShowGrid(False)
+
+        self.addItems()
 
     def closeEvent(self, a0):
         self.parent().close()
