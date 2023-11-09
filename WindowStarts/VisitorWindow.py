@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 from Forms.StaffWindow import Ui_StaffWindow
 from Forms.VisitorWindow import Ui_VisitorWindow
@@ -67,7 +68,25 @@ class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
         print(self.activeServices)
 
     def pay(self):
-        if self.chosenPackage == 'packNo':
+        msg = QMessageBox(self)
+        msg.setWindowTitle("Подтверждение")
+        msg.setText("Вы уверены что хотите совершить покупку")
+        msg.setIcon(QMessageBox.Information)
+        msg.addButton(QMessageBox.Ok)
+
+        res = msg.show()
+
+        if res == QMessageBox.Ok:
             pass
+            print('ok press')
+        if self.chosenPackage == 'packNo':
+            for i in range(len(self.activeServices)):
+                if self.activeServices[i]:
+                    pass
         else:
             self.sql.add_package(self.chosenPackage, self.ID)
+
+
+    def closeEvent(self, a0):
+        self.parent().close()
+        self.close()

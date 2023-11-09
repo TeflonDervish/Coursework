@@ -59,7 +59,7 @@ class SqlQuery():
             if not row: break
             dict["Surname"].append(row[1])
             dict["Name"].append(row[2])
-            dict["PhoneNumber"].append(row[3])
+            dict["MiddleName"].append(row[3])
             dict["PhoneNumber"].append(row[4])
             dict["LaborBookName"].append(row[5])
             dict["MedicalBookName"].append(row[6])
@@ -222,6 +222,6 @@ class SqlQuery():
 
 
     def add_package(self, Package_ID, Visitor_ID):
-        self.cursor.execute('EXEC ' + Package_ID + Visitor_ID + ',12;')
-
-    
+        print('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ',12;')
+        self.cursor.execute('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ',12;')
+        self.connection_to_db.commit()

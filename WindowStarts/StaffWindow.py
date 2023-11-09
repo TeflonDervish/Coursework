@@ -38,3 +38,7 @@ class StaffWindow(QtWidgets.QMainWindow, Ui_StaffWindow):
         self.tableWidget.show()
 
 
+
+    def closeEvent(self, a0):
+        self.parent().close()
+        self.close()

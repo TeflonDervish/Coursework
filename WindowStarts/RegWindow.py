@@ -52,3 +52,8 @@ class RegWindow(QtWidgets.QMainWindow, Ui_RegWindow):
             msg.addButton(QMessageBox.Ok)
 
             msg.show()
+
+
+    def closeEvent(self, a0):
+        self.parent().close()
+        self.close()

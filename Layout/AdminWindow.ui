@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="tabWidget_V">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="PurchasedServices">
      <attribute name="title">
@@ -52,7 +52,7 @@
         <number>10</number>
        </property>
        <item row="0" column="0" rowspan="2">
-        <widget class="QTableWidget" name="tableWidget"/>
+        <widget class="QTableWidget" name="tableWidget_PS"/>
        </item>
        <item row="0" column="1">
         <widget class="QGroupBox" name="groupBox_2">
@@ -211,7 +211,7 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-112</y>
+            <y>0</y>
             <width>184</width>
             <height>476</height>
            </rect>
@@ -322,7 +322,7 @@
         </widget>
        </item>
        <item row="0" column="0" rowspan="3">
-        <widget class="QTableWidget" name="tableWidget_2"/>
+        <widget class="QTableWidget" name="tableWidget_S"/>
        </item>
        <item row="2" column="1">
         <widget class="QScrollArea" name="scrollArea_5">
@@ -543,7 +543,7 @@
         </widget>
        </item>
        <item row="0" column="0" rowspan="2">
-        <widget class="QTableWidget" name="tableWidget_3"/>
+        <widget class="QTableWidget" name="tableWidget_V"/>
        </item>
       </layout>
      </widget>
