@@ -19,18 +19,24 @@ class SqlQuery():
         '''
         self.cursor.execute('SELECT * FROM Visitors')
         dict = {
+            'Visitor_ID': [],
             'Surname': [],
             'Name': [],
             'PhoneNumber': [],
             'Email': [],
+            'login': [],
+            'password': [],
         }
         while 1:
             row = self.cursor.fetchone()
             if not row: break
+            dict['Visitor_ID'].append(row[0])
             dict["Surname"].append(row[1])
             dict["Name"].append(row[2])
             dict["PhoneNumber"].append(row[3])
             dict["Email"].append(row[4])
+            dict['login'].append(row[5])
+            dict['password'].append(row[6])
         return dict
 
     def get_staff(self):
@@ -47,22 +53,30 @@ class SqlQuery():
         '''
         self.cursor.execute('SELECT * FROM Staff')
         dict = {
+            'Staff_ID': [],
             'Surname': [],
             'Name': [],
             'MiddleName': [],
             'PhoneNumber': [],
             'LaborBookName': [],
             'MedicalBookName': [],
+            'login':[],
+            'pasword':[],
+            'access_mod':[],
         }
         while 1:
             row = self.cursor.fetchone()
             if not row: break
+            dict['Staff_ID'].append(row[0])
             dict["Surname"].append(row[1])
             dict["Name"].append(row[2])
             dict["MiddleName"].append(row[3])
             dict["PhoneNumber"].append(row[4])
             dict["LaborBookName"].append(row[5])
             dict["MedicalBookName"].append(row[6])
+            dict["login"].append(row[7])
+            dict["pasword"].append(row[8])
+            dict["access_mod"].append(row[9])
         return dict
 
     def get_equipment(self):
@@ -75,12 +89,14 @@ class SqlQuery():
         '''
         self.cursor.execute('SELECT * FROM Equipment')
         dict = {
+            'Equipment_ID': [],
             'Name': [],
             'Purpose': [],
         }
         while 1:
             row = self.cursor.fetchone()
             if not row: break
+            dict['Equipment_ID'].append(row[0])
             dict["Name"].append(row[1])
             dict["Purpose"].append(row[2])
         return dict
@@ -98,6 +114,7 @@ class SqlQuery():
         '''
         self.cursor.execute('SELECT * FROM Service')
         dict = {
+            'Service_ID': [],
             'Price': [],
             'ServiceDescription': [],
             'Limitations': [],
@@ -107,6 +124,7 @@ class SqlQuery():
         while 1:
             row = self.cursor.fetchone()
             if not row: break
+            dict['Service_ID'].append(row[0])
             dict["Price"].append(row[1])
             dict["ServiceDescription"].append(row[2])
             dict["Limitations"].append(row[3])
@@ -126,25 +144,30 @@ class SqlQuery():
             EndTime smalldatetime,
         )
         '''
-        self.cursor.execute('SELECT * FROM PurchasedService')
-        dict = {
-            'Visitor_ID': [],
-            'Staff_ID': [],
-            'Service_ID': [],
-            'Price': [],
-            'StartTime': [],
-            'EndTime': [],
-        }
-        while 1:
-            row = self.cursor.fetchone()
-            if not row: break
-            dict["Visitor_ID"].append(row[1])
-            dict["Staff_ID"].append(row[2])
-            dict["Service_ID"].append(row[3])
-            dict["Price"].append(row[4])
-            dict["StartTime"].append(row[5])
-            dict["EndTime"].append(row[6])
-        return dict
+        try:
+            self.cursor.execute('SELECT * FROM PurchasedService')
+            dict = {
+                'PurchasedService_ID': [],
+                'Visitor_ID': [],
+                'Staff_ID': [],
+                'Service_ID': [],
+                'Price': [],
+                'StartTime': [],
+                'EndTime': [],
+            }
+            while 1:
+                row = self.cursor.fetchone()
+                if not row: break
+                dict["PurchasedService_ID"].append(row[0])
+                dict["Visitor_ID"].append(row[1])
+                dict["Staff_ID"].append(row[2])
+                dict["Service_ID"].append(row[3])
+                dict["Price"].append(row[4])
+                dict["StartTime"].append(row[5])
+                dict["EndTime"].append(row[6])
+            return dict
+        except:
+            pass
 
     # [Id, type, access]
     def chekc_password(self, login, password):
@@ -183,45 +206,74 @@ class SqlQuery():
     def sql_insert(self, table, values):
 
         text_query = 'INSERT INTO ' + table + ' VALUES ('
-
+        print(values)
         for i in values:
             text_query += i + ', '
 
         text_query = text_query[:-2] + ");"
         print(text_query)
-        self.cursor.execute(text_query)
-        self.connection_to_db.commit()
+        try:
+            self.cursor.execute(text_query)
+            self.connection_to_db.commit()
+        except:
+            pass
 
     def query(self, text):
-        self.cursor.execute(text)
+        print(text)
+        try:
+            self.cursor.execute(text)
+        except:
+            pass
 
 
     def get_staff_info(self, ID):
-        self.cursor.execute('SELECT * FROM PSandV WHERE PSandV.Staff_ID = ' + str(ID))
-        dict = {
-            'Surname': [],
-            'Name': [],
-            'PhoneNumber': [],
-            'Email': [],
-            'Price': [],
-            'StartTime': [],
-            'EndTime': [],
-        }
-        while 1:
-            row = self.cursor.fetchone()
-            if not row: break
-            dict["Surname"].append(row[0])
-            dict["Name"].append(row[1])
-            dict["PhoneNumber"].append(row[2])
-            dict["Email"].append(row[3])
-            dict["EndTime"].append(row[5])
-            dict["Price"].append(row[6])
-            dict["StartTime"].append(row[7])
-            dict["EndTime"].append(row[8])
-        return  dict
-
+        try:
+            self.cursor.execute('SELECT * FROM PSandV WHERE PSandV.Staff_ID = ' + str(ID))
+            dict = {
+                'Surname': [],
+                'Name': [],
+                'PhoneNumber': [],
+                'Email': [],
+                'Price': [],
+                'StartTime': [],
+                'EndTime': [],
+            }
+            while 1:
+                row = self.cursor.fetchone()
+                if not row: break
+                dict["Surname"].append(row[0])
+                dict["Name"].append(row[1])
+                dict["PhoneNumber"].append(row[2])
+                dict["Email"].append(row[3])
+                dict["EndTime"].append(row[5])
+                dict["Price"].append(row[6])
+                dict["StartTime"].append(row[7])
+                dict["EndTime"].append(row[8])
+            return  dict
+        except:
+            pass
 
     def add_package(self, Package_ID, Visitor_ID, DateTime):
-        print('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ",12, '" + DateTime + "';")
-        self.cursor.execute('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ",12, '" + DateTime + "';")
-        self.connection_to_db.commit()
+        try:
+            print('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ",NULL, '" + DateTime + "';")
+            self.cursor.execute('EXEC ' + str(Package_ID) + ' ' + str(Visitor_ID) + ",NULL, '" + DateTime + "';")
+            self.connection_to_db.commit()
+        except:
+            pass
+
+    def sql_delete(self, table, Index_col, Id):
+        try:
+            print("DELETE FROM " + table + " WHERE " + Index_col + " = " + Id + ";")
+            self.cursor.execute("DELETE FROM " + table + " WHERE " + Index_col + " = " + Id + ";")
+        except:
+            pass
+
+    def sql_search(self, table, dict):
+        text_query = "SELECT * FROM " + table + " WHERE "
+
+        for i in dict:
+            if i != '':
+                text_query += i + " = " + dict[i] + ' and '
+        print(text_query)
+
+        self.cursor.execute(text_query)

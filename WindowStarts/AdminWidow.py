@@ -16,14 +16,11 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.setupUi(self)
 
         self.pushExit.clicked.connect(self.showLogin)
+        self.refresh.clicked.connect(self.Refresh)
 
         self.sql = sql
 
         self.buttonConnect()
-
-        self.changeS = ChangeStaff([], self)
-        self.changeV = ChangeVisitor(data=[], parent=self)
-        self.changePS = ChangePurchasedService(data=[], parent=self)
 
         self.staffData = self.sql.get_staff()
         self.visitorData = self.sql.get_visitors()
@@ -47,12 +44,24 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.tableWidget_V.setHorizontalHeaderLabels(self.headerLabels_V)
         self.tableWidget_V.setShowGrid(False)
 
+        self.tableWidget_S.itemClicked.connect(self.itemClickedS)
+        self.tableWidget_V.itemClicked.connect(self.itemClickedV)
+        self.tableWidget_PS.itemClicked.connect(self.itemClickedPS)
+
         self.addItems()
 
 
     def showLogin(self):
         self.parent().show()
         self.hide()
+
+    def itemClickedS(self, item):
+        self.rowS = item.row()
+    def itemClickedV(self, item):
+        self.rowV = item.row()
+
+    def itemClickedPS(self, item):
+        self.rowPS = item.row()
 
     def buttonConnect(self):
         self.pushAddStaff.clicked.connect(self.AddStaff)
@@ -66,10 +75,6 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.pushRemoveStaff.clicked.connect(self.RemoveStaff)
         self.pushRemoveVisitor.clicked.connect(self.RemoveVisitor)
         self.pushRemovePurchased_3.clicked.connect(self.RemovePurchased)
-
-        self.pushSearchStaff.clicked.connect(self.SearchStaff)
-        self.pushSearchVisitor.clicked.connect(self.SearchVisitor)
-        self.pushSearchPurchased_2.clicked.connect(self.SearchPurchased)
 
 
     def addItems(self):
@@ -93,49 +98,68 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.tableWidget_V.show()
 
     def AddStaff(self):
-        self.changeS.show()
-        self.updateTable()
+        changeS = ChangeStaff(sql=self.sql, data=[], parent=self)
+        changeS.show()
 
     def AddVisitor(self):
-        self.changeV.show()
-        self.updateTable()
+        changeV = ChangeVisitor(sql=self.sql, data=[], parent=self)
+        changeV.show()
 
     def AddPurchased(self):
-        self.changePS.show()
-        self.updateTable()
+        changePS = ChangePurchasedService(sql=self.sql, data=[], parent=self)
+        changePS.show()
 
     def ChangeStaff(self):
-        self.changeS.show()
-        self.updateTable()
+        data = []
+        for i in range(10):
+            data.append(self.tableWidget_S.item(self.rowS, i).text())
+        print(data)
+
+        changeS = ChangeStaff(sql=self.sql, data=data, parent=self)
+        changeS.show()
 
     def ChangeVisitor(self):
-        self.changeV.show()
-        self.updateTable()
+        data = []
+        for i in range(7):
+            data.append(self.tableWidget_V.item(self.rowV, i).text())
+        print(data)
+
+        changeS = ChangeVisitor(sql=self.sql, data=data, parent=self)
+        changeS.show()
 
     def ChangePurchased(self):
-        self.changePS.show()
-        self.updateTable()
+        data = []
+        for i in range(7):
+            data.append(self.tableWidget_PS.item(self.rowV, i).text())
+        print(data)
+        print(data)
+        changePS = ChangePurchasedService(sql=self.sql, data=data, parent=self)
+        changePS.show()
 
-    def RemoveStaff(self): pass
+    def RemoveStaff(self):
+        try:
+            self.sql.sql_delete("Staff", "Staff_ID", self.tableWidget_S.item(self.rowS, 0).text())
+        except:
+            pass
 
-    def RemoveVisitor(self): pass
+    def RemoveVisitor(self):
+        try:
+            self.sql.sql_delete("Visitor", "Visitor_ID", self.tableWidget_V.item(self.rowV, 0).text())
+        except:
+            pass
 
-    def RemovePurchased(self): pass
+    def RemovePurchased(self):
+        try:
+            self.sql.sql_delete("PurchasedService", "PurchasedService_ID", self.tableWidget_PS.item(self.rowPS, 0).text())
+        except:
+            pass
 
-    def SearchStaff(self): pass
 
-    def SearchVisitor(self): pass
 
-    def SearchPurchased(self): pass
-
-    def updateTable(self):
+    def Refresh(self):
         self.tableWidget_S.clear()
         self.tableWidget_V.clear()
         self.tableWidget_PS.clear()
-
-        self.changeS = ChangeStaff([], self)
-        self.changeV = ChangeVisitor(data=[], parent=self)
-        self.changePS = ChangePurchasedService(data=[], parent=self)
 
         self.staffData = self.sql.get_staff()
         self.visitorData = self.sql.get_visitors()

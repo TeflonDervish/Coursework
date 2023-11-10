@@ -228,23 +228,23 @@ class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
         confirmation = QMessageBox.question(self, 'Подтверждение', 'Вы уверены что хотите совершить покупку', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 
         if confirmation == QMessageBox.Yes:
-            time = self.dateTimeEdit.dateTime().toString('yyyy-MM-dd hh:mm')
+            time = self.dateTimeEdit.dateTime().toString('yyyy-dd-MM hh:mm')
 
             if self.chosenPackage == 'PackNo':
                 if self.Service1.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '0', '2000', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '0', '2000', "'" + time + "'", "'" + time + "'"])
                 if self.Service2.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '1', '2000', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '1', '2000', "'" + time + "'", "'" + time + "'"])
                 if self.Service3.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '2', '2000', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '2', '2000', "'" + time + "'", "'" + time + "'"])
                 if self.Service4.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '3', '2000', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '3', '2000', "'" + time + "'", "'" + time + "'"])
                 if self.Service5.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '4', '2200', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '4', '2200', "'" + time + "'", "'" + time + "'"])
                 if self.Service6.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '5', '2200', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '5', '2200', "'" + time + "'", "'" + time + "'"])
                 if self.Service7.isChecked():
-                    self.sql.sql_insert('PurchasedService', [str(self.ID), '12', '9', '1500', "'" + time + "'", "'" + time + "'"])
+                    self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '9', '1500', "'" + time + "'", "'" + time + "'"])
             else:
                 self.sql.add_package(self.chosenPackage, self.ID, time)
 

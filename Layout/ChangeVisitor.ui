@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>366</width>
-    <height>222</height>
+    <height>286</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <x>0</x>
      <y>0</y>
      <width>361</width>
-     <height>201</height>
+     <height>275</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -66,7 +66,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0" colspan="2">
+    <item row="6" column="0" colspan="2">
      <widget class="QPushButton" name="pushButton">
       <property name="text">
        <string>ОК</string>
@@ -84,6 +84,26 @@
     </item>
     <item row="0" column="1">
      <widget class="QLineEdit" name="Surname"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="Login"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="Password"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Логин</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Пароль</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

@@ -96,7 +96,6 @@ BEGIN
 END;
 EXEC Pack5 2,1,'2020-11-01 10:00';
 
-EXEC Pack4 28,12, '2023-11-10 00:44';
 -- 6 пакет (батут+ комната)
 CREATE OR ALTER PROCEDURE Pack6
     @VisitorID int, @StuffID int,@StartTime smalldatetime AS
@@ -187,23 +186,26 @@ AS BEGIN
 		FROM Staff
 		WHERE Staff.login = @Login) <= 0
 	INSERT INTO Staff
-	SELECT *
+	SELECT Surname, Name, MiddleName, PhoneNumber,LaborBookName, MedicalBookName, login, password, access_mod
 	FROM inserted
 END;
-
 CREATE OR ALTER TRIGGER UniqueLoginVisitors
 ON Visitors
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS BEGIN
 	DECLARE @Login VARCHAR(20)
-	SELECT @Login = inserted.login
+	SELECT @Login = inserted.Login
 	FROM inserted
-	IF (SELECT COUNT(login) 
+	IF (SELECT COUNT(Login) 
 		FROM Visitors
-		WHERE Visitors.login = @Login) <= 0
-	INSERT INTO Visitors(Surname, Name, PhoneNumber, Email, login, password)
-	SELECT Surname, Name, PhoneNumber, Email, login, password
-	FROM inserted
+		WHERE Visitors.Login = @Login) > 0
+	BEGIN
+		ROLLBACK
+	END
+	ELSE
+		INSERT INTO Visitors
+		SELECT Surname, Name, PhoneNumber, Email, login, password
+		FROM inserted
 END;
 
 -- тригер на удаление если удаление посетителя и сотрудника, в таблице приобретнные услуги ID меняется на NULL

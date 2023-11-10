@@ -86,15 +86,6 @@
     <item row="5" column="1">
      <widget class="QDateTimeEdit" name="EndTime"/>
     </item>
-    <item row="0" column="1">
-     <widget class="QComboBox" name="Visitor_ID"/>
-    </item>
-    <item row="1" column="1">
-     <widget class="QComboBox" name="Staff_ID"/>
-    </item>
-    <item row="2" column="1">
-     <widget class="QComboBox" name="Services_ID"/>
-    </item>
     <item row="6" column="0" colspan="2">
      <widget class="QPushButton" name="pushButton">
       <property name="text">
@@ -104,6 +95,15 @@
     </item>
     <item row="3" column="1">
      <widget class="QDoubleSpinBox" name="Price"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="visitorID"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="StaffID"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="serviceID"/>
     </item>
    </layout>
   </widget>

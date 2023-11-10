@@ -40,15 +40,16 @@ create table Service(
 	ServiceDescription varchar(300),
 	Limitations varchar(300),
 	RoomNumber tinyint, 
-	Equipment_ID int foreign key references Equipment(Equipment_ID),
+	Equipment_ID int foreign key references Equipment(Equipment_ID) on delete set null,
 )
 
 create table PurchasedService(
 	PurchasedService_ID int primary key identity(0, 1),
-	Visitor_ID int foreign key references Visitors(Visitor_ID),
-	Staff_ID int foreign key references Staff(Staff_ID),
-	Service_ID int foreign key references Service(Service_ID),
+	Visitor_ID int foreign key references Visitors(Visitor_ID) on delete set null,
+	Staff_ID int foreign key references Staff(Staff_ID) on delete set null,
+	Service_ID int foreign key references Service(Service_ID) on delete set null,
 	Price decimal(8, 2),
 	StartTime smalldatetime, 
 	EndTime smalldatetime,
 )
+
