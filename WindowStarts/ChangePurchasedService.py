@@ -24,8 +24,8 @@ class ChangePurchasedService(QtWidgets.QMainWindow, Ui_ChangePurchasedService):
             self.serviceID.setText(data[3])
             self.Price.setValue(float(data[4]))
             print(int(data[5][0:4]), int(data[5][5:7]), int(data[5][8:10]), int(data[5][11:13]), int(data[5][14: 16]))
-            #self.StartTime.setDateTime(QDateTime(int(data[5][0:4]), int(data[5][5:7]), int(data[5][8:10]), int(data[5][11:13]), int(data[5][14: 16])))
-            #self.EndTime.setDateTime(QDateTime(int(data[6][0:4]), int(data[6][5:7]), int(data[6][8:10]), int(data[6][11:13]), int(data[6][14: 16])))
+            self.StartTime.setDateTime(QDateTime(int(data[5][0:4]), int(data[5][5:7]), int(data[5][8:10]), int(data[5][11:13]), int(data[5][14: 16])))
+            self.EndTime.setDateTime(QDateTime(int(data[6][0:4]), int(data[6][5:7]), int(data[6][8:10]), int(data[6][11:13]), int(data[6][14: 16])))
 
 
     def pushOk(self):

@@ -130,9 +130,9 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
     def ChangePurchased(self):
         data = []
         for i in range(7):
-            data.append(self.tableWidget_PS.item(self.rowV, i).text())
+            data.append(self.tableWidget_PS.item(self.rowPS, i).text())
         print(data)
-        print(data)
+
         changePS = ChangePurchasedService(sql=self.sql, data=data, parent=self)
         changePS.show()
 
