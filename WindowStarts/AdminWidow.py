@@ -15,6 +15,10 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.ID = ID
         self.setupUi(self)
 
+        self.rowV = 0
+        self.rowS = 0
+        self.rowPS = 0
+
         self.pushExit.clicked.connect(self.showLogin)
         self.refresh.clicked.connect(self.Refresh)
 
