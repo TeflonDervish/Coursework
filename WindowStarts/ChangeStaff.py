@@ -8,7 +8,6 @@ class ChangeStaff(QtWidgets.QMainWindow, Ui_ChangeStaff):
         super(ChangeStaff, self).__init__(parent)
         self.setupUi(self)
         self.pushButton.clicked.connect(self.pushOk)
-
         self.data = data
         self.sql = sql
 
@@ -19,8 +18,8 @@ class ChangeStaff(QtWidgets.QMainWindow, Ui_ChangeStaff):
 
             self.Surname.setText(data[1])
             self.Name.setText(data[2])
-            self.phoneNumber.setText(data[3])
-            self.Email.setText(data[4])
+            self.middleName.setText(data[3])
+            self.phoneNumber.setText(data[4])
             self.LaborBook.setText(data[5])
             self.MedicalBook.setText(data[6])
             self.Login.setText(data[7])
@@ -32,22 +31,21 @@ class ChangeStaff(QtWidgets.QMainWindow, Ui_ChangeStaff):
     def pushOk(self):
         surname = self.Surname.text()
         name = self.Name.text()
+        middle = self.middleName.text()
         phone = self.phoneNumber.text()
-        email = self.Email.text()
         laborBook = self.LaborBook.text()
         medBook = self.MedicalBook.text()
         login = self.Login.text()
         password = self.Password.text()
         access_mod = self.comboBox.currentText()
-        print(access_mod)
         if self.mod == 'insert':
-            self.sql.sql_insert("Staff", ["'" + surname + "'", "'" + name + "'", "'" + phone + "'", "'" + email + "'",
+            self.sql.sql_insert("Staff", ["'" + surname + "'", "'" + name + "'", "'" + middle + "'", "'" + phone + "'",
                                           laborBook, medBook, "'" + login + "'", "'" + password + "'", access_mod])
         elif self.mod == 'update':
             self.sql.query("UPDATE Staff SET " +
                            "Surname = '" + surname +
                            "', Name = '" + name +
-                           "', MiddleName = '" + '' +
+                           "', MiddleName = '" + middle +
                            "', LaborBookName = " + laborBook +
                            ", MedicalBookName = " + medBook +
                            ", login = '" + login +

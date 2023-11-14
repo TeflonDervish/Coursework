@@ -121,6 +121,7 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
 
     def ChangeStaff(self):
         data = []
+
         for i in range(10):
             data.append(self.tableWidget_S.item(self.rowS, i).text())
 
