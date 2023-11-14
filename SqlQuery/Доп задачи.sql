@@ -35,9 +35,9 @@ FROM PSandSt
 
 
 CREATE OR ALTER PROCEDURE Pack1
-    @VisitorID int, @StuffID int, @StartTime smalldatetime AS
+    @VisitorID int, @StuffID int, @StartTime SMALLDATETIME AS
 BEGIN
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	INSERT INTO PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) VALUES
 	(@VisitorID, @StuffID, 6, 350, @StartTime, DATEADD(HOUR,1,@StartTime))
 
 END;
@@ -45,65 +45,61 @@ EXEC Pack1 2,1,'2020-11-1 12:00';
 
 -- 2 пакет (аниматов + батутов + комнатв)
 CREATE OR ALTER PROCEDURE Pack2
-    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
+    @VisitorID int, @StuffID int,@StartTime SMALLDATETIME AS
 BEGIN
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	INSERT INTO PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) VALUES
 	(@VisitorID, @StuffID, 4,2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 6, 350 , DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
 	(@VisitorID, @StuffID, 1, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
-
 END;
 EXEC Pack2 2,1,'2020-11-1 12:00';
 
 -- 3 пакет (аниматов + гигапузыри + батутов + комнатв)
 CREATE OR ALTER PROCEDURE Pack3
-    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
+    @VisitorID INT, @StuffID INT,@StartTime SMALLDATETIME AS
 BEGIN
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	INSERT INTO PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) VALUES
 	(@VisitorID, @StuffID, 4, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 7, 999.99, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 6, 350, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
 	(@VisitorID, @StuffID, 1, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
-
 END;
 EXEC Pack3 2,1,'2020-11-1 10:00';
 
 
 -- 4 пакет (аниматов + пинь€т + батутв + комнатв)
 CREATE OR ALTER PROCEDURE Pack4
-    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
+    @VisitorID INT, @StuffID INT,@StartTime SMALLDATETIME AS
 BEGIN
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	INSERT INTO PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) VALUES
 	(@VisitorID, @StuffID, 4, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 8, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 6, 350, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
 	(@VisitorID, @StuffID, 3, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
-
 END;
 EXEC Pack4 2,1,'2020-11-1 10:00';
 
 -- 5 пакет (аниматов + гигпуз + пинь€т + батутв + комнатв)
 CREATE OR ALTER PROCEDURE Pack5
-    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
+    @VisitorID INT, @StuffID INT,@StartTime SMALLDATETIME AS
 BEGIN
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	INSERT INTO PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) VALUES
 	(@VisitorID, @StuffID, 4, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 7, 999.99, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 8, 2200, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 6, 350, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime)),
 	(@VisitorID, @StuffID, 2, 2000, DATEADD(HOUR,2,@StartTime), DATEADD(HOUR,3,@StartTime))
-
 END;
-EXEC Pack5 2,1,'2020-11-01 10:00';
+EXEC Pack5 2,1,'2020-11-1 10:00';
+
 
 -- 6 пакет (батут+ комната)
 CREATE OR ALTER PROCEDURE Pack6
-    @VisitorID int, @StuffID int,@StartTime smalldatetime AS
+    @VisitorID INT, @StuffID INT,@StartTime SMALLDATETIME AS
 BEGIN
-	insert into PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) values
+	INSERT INTO PurchasedService (P.Visitor_ID, P.Staff_ID, P.Service_ID, P.Price, P.StartTime, P.EndTime) VALUES
 	(@VisitorID, @StuffID, 6, 350, @StartTime, DATEADD(HOUR,1,@StartTime)),
 	(@VisitorID, @StuffID, 0, 2000, DATEADD(HOUR,1,@StartTime), DATEADD(HOUR,2,@StartTime))
-
 END;
 EXEC Pack6 2,1,'2020-11-1 10:00';
 
@@ -125,20 +121,21 @@ END;
 PRINT ' оличество сотрудников: ' + CAST(dbo.GetStaffCount() AS VARCHAR(3))
 
 --“аблична€
-CREATE OR ALTER FUNCTION dbo.GetPurchasedService(@RoomNum TINYINT)
+CREATE OR ALTER FUNCTION dbo.GetPurchasedService(@RoomNum TINYINT, @StartDate SMALLDATETIME, @EndDate SMALLDATEtIME)
 RETURNS TABLE
 AS
 RETURN(
-	SELECT PurchasedService.Price, PurchasedService.StartTime, PurchasedService.EndTime
-	FROM Service
+	SELECT Equipment.Name, PurchasedService.StartTime, PurchasedService.EndTime
+	FROM Equipment
+		JOIN Service ON Service.Equipment_ID=Equipment.Equipment_ID
 		JOIN PurchasedService ON Service.Service_ID=PurchasedService.Service_ID
-	WHERE RoomNumber = @RoomNum)
+	WHERE RoomNumber = @RoomNum AND (@StartDate <= PurchasedService.StartTime AND @EndDate >= PurchasedService.EndTime))
 
 SELECT *
-FROM dbo.GetPurchasedService(3)
+FROM dbo.GetPurchasedService(14, '2000-01-01', '2023-30-06')
 
 --ћультиоператорна€
-CREATE OR ALTER FUNCTION dbo.ServiceProfit(@StartDate DATETIME, @EndDate DATETIME)
+CREATE OR ALTER FUNCTION dbo.ServiceProfit(@StartDate SMALLDATETIME, @EndDate SMALLDATETIME)
 RETURNS @Profit Table(
 	NameProfit VARCHAR(20),
 	PriceProfit DECIMAL(8,2))
@@ -174,7 +171,10 @@ AS BEGIN
 		WHERE PurchasedService.StartTime>=GETDATE())
 END;
 
---“риггер на добавление и изменение(если мен€ем запись в таблице приобретенноый услуги если даты совпадают не разрешаем добавление)
+DELETE Staff
+WHERE Staff_ID=5
+
+--“риггер на добавление и изменение(нельз€ одинаковые логины)
 CREATE OR ALTER TRIGGER UniqueLogin
 ON Staff
 INSTEAD OF INSERT, UPDATE
@@ -186,12 +186,21 @@ AS BEGIN
 		FROM Staff
 		WHERE Staff.login = @Login) <= 0
 	INSERT INTO Staff
-	SELECT Surname, Name, MiddleName, PhoneNumber,LaborBookName, MedicalBookName, login, password, access_mod
+	SELECT Surname, Name, MiddleName, PhoneNumber, LaborBookName, MedicalBookName, login, password, access_mod
 	FROM inserted
 END;
+
+INSERT INTO Staff
+VALUES ('sfvrvv', 'midvss', 'sveev', 1452, 1233, 36522, '123', '325', NULL)
+
+UPDATE Staff
+SET Login = '123'
+WHERE Staff_ID=48
+
+--“риггер на добавление и изменение(нельз€ одинаковые логины)
 CREATE OR ALTER TRIGGER UniqueLoginVisitors
 ON Visitors
-AFTER INSERT, UPDATE
+INSTEAD OF INSERT, UPDATE
 AS BEGIN
 	DECLARE @Login VARCHAR(20)
 	SELECT @Login = inserted.Login
@@ -208,6 +217,33 @@ AS BEGIN
 		FROM inserted
 END;
 
--- тригер на удаление если удаление посетител€ и сотрудника, в таблице приобретнные услуги ID мен€етс€ на NULL
--- ???
--- Staff_ID=ins.Staff_ID, Visitor_ID=ins.Visitor_ID, Price=ins.Price, Service_ID=ins.Visitor_ID, StartTime=ins.StartTime, EndTime=ins.EndTime
+INSERT INTO Visitors
+VALUES ('sfvrvv', 'midvss', 1452, 'dsvrev', 'efhhef', '325')
+
+UPDATE Visitors
+SET Login = '123'
+WHERE Visitor_ID=5
+
+--“риггер на одно и тоже врем€ нельз€ одну комнату
+CREATE OR ALTER TRIGGER dbo.UniqueRoom
+ON PurchasedService
+AFTER INSERT, UPDATE
+AS BEGIN
+	DECLARE @Start SMALLDATETIME
+	DECLARE @End SMALLDATETIME
+	DECLARE @RoomNumber TINYINT
+	SELECT @Start = inserted.StartTime, @End = inserted.EndTime, @RoomNumber = RoomNumber
+	FROM inserted
+		JOIN Service ON inserted.Service_ID=Service.Service_ID
+	IF (SELECT COUNT(PurchasedService.PurchasedService_ID) 
+		FROM PurchasedService
+			JOIN Service ON PurchasedService.Service_ID=Service.Service_ID
+		WHERE (PurchasedService.StartTime BETWEEN @Start AND @End 
+		OR PurchasedService.EndTime BETWEEN @Start AND @End) AND Service.RoomNumber = @RoomNumber) <= 0
+		INSERT INTO PurchasedService
+		SELECT Visitor_ID, Staff_ID, Service_ID, Price, StartTime, EndTime
+		FROM inserted
+END;
+
+
+UPDATE Visitors SET Surname = '1', Name = '1', PhoneNumber = '1', Email = '1', login = '1', password = '1' WHERE Visitor_ID = 66;
