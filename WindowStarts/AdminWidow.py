@@ -105,7 +105,7 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.tableWidget_V.show()
 
     def dohod(self):
-        dohod_window = YieldWindow(parent=self, sql=self.sql)
+        dohod_window = YieldWindow(sql=self.sql, parent=self)
         dohod_window.show()
     def AddStaff(self):
         changeS = ChangeStaff(sql=self.sql, data=[], parent=self)
@@ -159,7 +159,7 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
 
         if confirmation == QMessageBox.Yes:
             try:
-                self.sql.sql_delete("Visitor", "Visitor_ID", self.tableWidget_V.item(self.rowV, 0).text())
+                self.sql.sql_delete("Visitors", "Visitor_ID", self.tableWidget_V.item(self.rowV, 0).text())
             except:
                 pass
 

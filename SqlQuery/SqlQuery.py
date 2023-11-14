@@ -287,17 +287,20 @@ class SqlQuery():
             pass
 
     def service_profit(self, startTime, endTime):
+        print(1)
         try:
             dict = {
                 'Имя услуги': [],
                 'Стоимость': []
             }
+            print(f"SELECT * FROM ServiceProfit('{startTime}', '{endTime}')")
             self.cursor.execute(f"SELECT * FROM ServiceProfit('{startTime}', '{endTime}')")
             while 1:
                 row = self.cursor.fetchone()
                 if not row: break
                 dict['Имя услуги'].append(row[0])
-                dict['Стоимость'].append(row[1])
+                dict['Стоимость'].append(str(row[1]))
+
             return dict
         except:
             pass

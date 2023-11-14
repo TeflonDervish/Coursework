@@ -13,7 +13,6 @@ class ChangePurchasedService(QtWidgets.QMainWindow, Ui_ChangePurchasedService):
 
         self.data = data
         self.sql = sql
-        print(data)
         if not data:
             self.mod = 'insert'
         else:

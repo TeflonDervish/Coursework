@@ -1,5 +1,4 @@
-
-
+import time
 
 
 class MakeDocument:
@@ -35,7 +34,7 @@ class MakeDocument:
         receipt += f"\nИтого: {total_income[1]:>28} руб."
 
 
-        file = open("Out/Receipt/ReceiptVisitor" + str(user_info[0]) + ".txt", 'w')
+        file = open("Out/Receipt/ReceiptVisitor_" + str(user_info[0]) + ".txt", 'w')
         file.write(receipt)
 
 

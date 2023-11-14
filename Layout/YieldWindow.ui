@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>434</width>
-    <height>340</height>
+    <height>332</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>0</x>
       <y>0</y>
       <width>431</width>
-      <height>338</height>
+      <height>381</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -95,7 +95,7 @@
       </widget>
      </item>
      <item row="2" column="0" colspan="2">
-      <widget class="QPushButton" name="find">
+      <widget class="QPushButton" name="findButton">
        <property name="font">
         <font>
          <pointsize>14</pointsize>
