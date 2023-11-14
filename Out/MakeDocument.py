@@ -8,15 +8,12 @@ class MakeDocument:
         pass
 
     def generate_receipt(self, user_info, service_info, total_income):
-        print(user_info)
-        print(service_info)
-        print(total_income)
         # Создаем оглавление
         receipt = """
-            Полет
-        Уфа, Башкортостан
-    ул, Менделеева, дом 217а
-        т. 79196084582
+                Полет
+            Уфа, Башкортостан
+        ул, Менделеева, дом 217а
+            т. 79196084582
 ========================================\n"""
         # Добавляем информацию о пользователе
         receipt += (f"Имя: {user_info[1]:>35}\n"
