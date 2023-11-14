@@ -123,7 +123,7 @@ class Ui_VisitorWindow(object):
         self.gridLayout.addWidget(self.pack4, 3, 0, 1, 1)
         self.toolBox.addItem(self.page, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 548, 429))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.page_2.setObjectName("page_2")
         self.gridLayoutWidget_2 = QtWidgets.QWidget(self.page_2)
         self.gridLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 541, 431))
@@ -273,7 +273,7 @@ class Ui_VisitorWindow(object):
 
     def retranslateUi(self, VisitorWindow):
         _translate = QtCore.QCoreApplication.translate
-        VisitorWindow.setWindowTitle(_translate("VisitorWindow", "MainWindow"))
+        VisitorWindow.setWindowTitle(_translate("VisitorWindow", "Админ"))
         self.pack5.setText(_translate("VisitorWindow", "5 пакет (аниматор + гигапузыри + пиньят + батуты + комната)"))
         self.pack2.setText(_translate("VisitorWindow", "2 пакет (аниматов + батутов + комната)"))
         self.pack1.setText(_translate("VisitorWindow", "Час батутов!!!"))

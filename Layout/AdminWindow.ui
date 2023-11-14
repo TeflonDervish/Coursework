@@ -278,9 +278,9 @@
    <widget class="QPushButton" name="pushExit">
     <property name="geometry">
      <rect>
-      <x>744</x>
+      <x>754</x>
       <y>0</y>
-      <width>91</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
@@ -291,7 +291,7 @@
    <widget class="QPushButton" name="refresh">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>520</x>
       <y>0</y>
       <width>93</width>
       <height>31</height>
@@ -299,6 +299,19 @@
     </property>
     <property name="text">
      <string>Обновить</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Dohod">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>0</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Доходность</string>
     </property>
    </widget>
   </widget>

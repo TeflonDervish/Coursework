@@ -32,5 +32,5 @@ class Ui_StaffWindow(object):
 
     def retranslateUi(self, StaffWindow):
         _translate = QtCore.QCoreApplication.translate
-        StaffWindow.setWindowTitle(_translate("StaffWindow", "MainWindow"))
+        StaffWindow.setWindowTitle(_translate("StaffWindow", "Сотрудник"))
         self.pushExit.setText(_translate("StaffWindow", "Выход"))

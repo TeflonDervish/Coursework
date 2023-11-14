@@ -285,3 +285,19 @@ class SqlQuery():
             return user_data
         except:
             pass
+
+    def service_profit(self, startTime, endTime):
+        try:
+            dict = {
+                'Имя услуги': [],
+                'Стоимость': []
+            }
+            self.cursor.execute(f"SELECT * FROM ServiceProfit('{startTime}', '{endTime}')")
+            while 1:
+                row = self.cursor.fetchone()
+                if not row: break
+                dict['Имя услуги'].append(row[0])
+                dict['Стоимость'].append(row[1])
+            return dict
+        except:
+            pass

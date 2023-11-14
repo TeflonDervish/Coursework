@@ -7,3 +7,6 @@ pyuic5 -o Forms/VisitorWindow.py Layout/VisitorWindow.ui
 pyuic5 -o Forms/ChangePurchasedService.py Layout/ChangePurchasedService.ui
 pyuic5 -o Forms/ChangeStaff.py Layout/ChangeStaff.ui
 pyuic5 -o Forms/ChangeVisitor.py Layout/ChangeVisitor.ui
+
+pyuic5 -o Forms/WorkloadWindow.py Layout/WorkloadWindow.ui
+pyuic5 -o Forms/YieldWindow.py Layout/YieldWindow.ui

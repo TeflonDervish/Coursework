@@ -7,6 +7,7 @@ from SqlQuery.SqlQuery import SqlQuery
 from WindowStarts.ChangePurchasedService import ChangePurchasedService
 from WindowStarts.ChangeStaff import ChangeStaff
 from WindowStarts.ChangeVisitor import ChangeVisitor
+from WindowStarts.YieldWindow import YieldWindow
 
 
 class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
@@ -80,6 +81,8 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.pushRemoveVisitor.clicked.connect(self.RemoveVisitor)
         self.pushRemovePurchased_3.clicked.connect(self.RemovePurchased)
 
+        self.Dohod.clicked.connect(self.dohod)
+
 
     def addItems(self):
         for i in range(len(self.purchasedData['Visitor_ID'])):
@@ -101,6 +104,9 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         self.tableWidget_S.show()
         self.tableWidget_V.show()
 
+    def dohod(self):
+        dohod_window = YieldWindow(parent=self, sql=self.sql)
+        dohod_window.show()
     def AddStaff(self):
         changeS = ChangeStaff(sql=self.sql, data=[], parent=self)
         changeS.show()
