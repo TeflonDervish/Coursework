@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QTableWidgetItem
+from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
 from Forms.AdminWindow import Ui_AdminWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -117,7 +117,6 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         data = []
         for i in range(10):
             data.append(self.tableWidget_S.item(self.rowS, i).text())
-        print(data)
 
         changeS = ChangeStaff(sql=self.sql, data=data, parent=self)
         changeS.show()
@@ -126,7 +125,6 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         data = []
         for i in range(7):
             data.append(self.tableWidget_V.item(self.rowV, i).text())
-        print(data)
 
         changeS = ChangeVisitor(sql=self.sql, data=data, parent=self)
         changeS.show()
@@ -135,28 +133,39 @@ class AdminWindow(QtWidgets.QMainWindow, Ui_AdminWindow):
         data = []
         for i in range(7):
             data.append(self.tableWidget_PS.item(self.rowPS, i).text())
-        print(data)
 
         changePS = ChangePurchasedService(sql=self.sql, data=data, parent=self)
         changePS.show()
 
     def RemoveStaff(self):
-        try:
-            self.sql.sql_delete("Staff", "Staff_ID", self.tableWidget_S.item(self.rowS, 0).text())
-        except:
-            pass
+        confirmation = QMessageBox.question(self, 'Подтверждение', 'Вы уверены что хотите удалить запись',
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if confirmation == QMessageBox.Yes:
+            try:
+                self.sql.sql_delete("Staff", "Staff_ID", self.tableWidget_S.item(self.rowS, 0).text())
+            except:
+                pass
 
     def RemoveVisitor(self):
-        try:
-            self.sql.sql_delete("Visitor", "Visitor_ID", self.tableWidget_V.item(self.rowV, 0).text())
-        except:
-            pass
+        confirmation = QMessageBox.question(self, 'Подтверждение', 'Вы уверены что хотите удалить запись',
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if confirmation == QMessageBox.Yes:
+            try:
+                self.sql.sql_delete("Visitor", "Visitor_ID", self.tableWidget_V.item(self.rowV, 0).text())
+            except:
+                pass
 
     def RemovePurchased(self):
-        try:
-            self.sql.sql_delete("PurchasedService", "PurchasedService_ID", self.tableWidget_PS.item(self.rowPS, 0).text())
-        except:
-            pass
+        confirmation = QMessageBox.question(self, 'Подтверждение', 'Вы уверены что хотите удалить запись',
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if confirmation == QMessageBox.Yes:
+            try:
+                self.sql.sql_delete("PurchasedService", "PurchasedService_ID", self.tableWidget_PS.item(self.rowPS, 0).text())
+            except:
+                pass
 
 
 

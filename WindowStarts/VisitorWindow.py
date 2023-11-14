@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 
 from Forms.StaffWindow import Ui_StaffWindow
 from Forms.VisitorWindow import Ui_VisitorWindow
+from Out.MakeDocument import MakeDocument
 
 
 class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
@@ -11,6 +12,8 @@ class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
         super(VisitorWindow, self).__init__(parent)
         self.ID = ID
         self.sql = sql
+        self.makeDoc = MakeDocument()
+
         self.setupUi(self)
 
         self.tableWidget.setColumnCount(2)
@@ -225,28 +228,78 @@ class VisitorWindow(QtWidgets.QMainWindow, Ui_VisitorWindow):
 
 
     def pay(self):
+        user_info = self.sql.user_info(self.ID)
+        service_info = []
         confirmation = QMessageBox.question(self, 'Подтверждение', 'Вы уверены что хотите совершить покупку', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 
         if confirmation == QMessageBox.Yes:
             time = self.dateTimeEdit.dateTime().toString('yyyy-dd-MM hh:mm')
 
             if self.chosenPackage == 'PackNo':
+                sum_service = 0
                 if self.Service1.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '0', '2000', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Комната бабочки", '2000'])
+                    sum_service += 2000
                 if self.Service2.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '1', '2000', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Комната радуга", '2000'])
+                    sum_service += 2000
                 if self.Service3.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '2', '2000', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Комната тачки", '2000'])
+                    sum_service += 2000
                 if self.Service4.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '3', '2000', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Камната шар", '2000'])
+                    sum_service += 2000
                 if self.Service5.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '4', '2200', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Аниматор", '2200'])
+                    sum_service += 2200
                 if self.Service6.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '5', '2200', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Тренерство", '2200'])
+                    sum_service += 2200
                 if self.Service7.isChecked():
                     self.sql.sql_insert('PurchasedService', [str(self.ID), 'NULL', '9', '1500', "'" + time + "'", "'" + time + "'"])
+                    service_info.append(["Квест", '1500'])
+                    sum_service += 1500
+
+                service_info.append(['Итого', str(sum_service)])
+
             else:
                 self.sql.add_package(self.chosenPackage, self.ID, time)
+                if self.chosenPackage == 'Pack1':
+                    service_info.append(['Час батутов', '350'])
+                    service_info.append(['Итого', '350'])
+                elif self.chosenPackage == 'Pack2':
+                    service_info.append(['Анимация', '2200'])
+                    service_info.append(['Час батутов', '350'])
+                    service_info.append(['Комната для чаепития', '2200'])
+                    service_info.append(['Итого', '4750'])
+                elif self.chosenPackage == 'Pack3':
+                    service_info.append(['Анимация', '2200'])
+                    service_info.append(['Гигапузыри', '999.99'])
+                    service_info.append(['Час батутов', '350'])
+                    service_info.append(['Комната для чаепития', '2000'])
+                    service_info.append(['Итого', str(2200 + 999.99 + 350 + 2000)])
+                elif self.chosenPackage == 'Pack4':
+                    service_info.append(['Анимация', '2200'])
+                    service_info.append(['Пиньята', '2200'])
+                    service_info.append(['Час батутов', '350'])
+                    service_info.append(['Комната для чаепития', '2000'])
+                    service_info.append(['Итого', str(2200 + 2200 + 350 + 2000)])
+                elif self.chosenPackage == 'Pack5':
+                    service_info.append(['Анимация', '2200'])
+                    service_info.append(['Гигапузыри', '999.99'])
+                    service_info.append(['Пиньята', '2200'])
+                    service_info.append(['Час батутов', '350'])
+                    service_info.append(['Комната для чаепития', '2000'])
+                    service_info.append(['Итого', str(2200 + 2220 + 350 + 2000 + 999.99)])
+            self.makeDoc.generate_receipt(user_info,service_info[:-1], service_info[-1])
+
+
 
 
     def closeEvent(self, a0):

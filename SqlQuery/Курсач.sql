@@ -53,3 +53,6 @@ create table PurchasedService(
 	EndTime smalldatetime,
 )
 
+
+
+INSERT INTO Visitors VALUES ('123', '123', '123', '123', '123', '123');

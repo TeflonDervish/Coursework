@@ -277,3 +277,11 @@ class SqlQuery():
         print(text_query)
 
         self.cursor.execute(text_query)
+
+    def user_info(self, Visitor_ID):
+        try:
+            self.cursor.execute('SELECT * FROM Visitors WHERE Visitor_ID = ' + str(Visitor_ID))
+            user_data = self.cursor.fetchone()
+            return user_data
+        except:
+            pass
